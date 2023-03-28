@@ -1,0 +1,35 @@
+{
+  "name" : "analysis-raw-dataset",
+  "description" : "",
+  "role" : "arn:aws:iam::114652167878:role/Glue_Role_Grupo5",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-114652167878-eu-west-2/scripts/analysis-raw-dataset.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--encryption-type" : "sse-s3",
+    "--enable-job-insights" : "false",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-114652167878-eu-west-2/temporary/",
+    "--enable-glue-datacatalog" : "true",
+    "library-set" : "analytics"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 5,
+  "timeout" : 2880,
+  "maxCapacity" : 5.0,
+  "glueVersion" : "3.0",
+  "numberOfWorkers" : 5,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "big_data_grupo_3",
+    "branch" : "main",
+    "folder" : "GlueJobs/Analysis/raw"
+  }
+}
